@@ -39,15 +39,18 @@ console.log(filteredUFO);
 
 // Put the filtered data on the page
 // Get a reference to the table body
+var new_tbody = document.createElement('tbody');
+
 var tbody = d3.select("tbody");
 
 // Build the table using Arrow Functions...
 filteredUFO.forEach((UFOReport) => {
-  var row = tbody.append("tr");
+  var row = newtbody.append("tr");
   Object.entries(UFOReport).forEach(([key, value]) => {
     var cell = row.append("td");
     cell.text(value);
   });
 });
+tbody.parentNode.replaceChild(new_tbody, tbody)
 }
 // Done
