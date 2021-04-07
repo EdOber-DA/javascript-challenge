@@ -1,8 +1,6 @@
 // from data.js
 // Assign the data from `data.js` to a descriptive variable
-
 var UFOData = data;
-
 
 // Select the button
 var button = d3.select("#filter-btn");
@@ -26,42 +24,37 @@ function runEnter() {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  console.log(inputValue);
-  console.log(UFOData);
+  
+  // Filter the data based on date that was inputed (can also be null if nothing entered and submitted)
+  var filteredUFO = UFOData.filter(sighting => sighting.datetime === inputValue);
 
+  // Print a copy of the filtered data to the console to verify it is correct
+  // console.log(filteredUFO);
 
-// Filter the data based on date
-var filteredUFO = UFOData.filter(sighting => sighting.datetime === inputValue);
-// var filteredUFO = UFOData.filter(sighting => sighting.datetime === "1/10/2010");
+  // Housekeeping: Clear out any existing rows in the table before adding new ones 
+  // Get the table object
+  var tableInfo = document.getElementById('ufo-table');
+  
+  // count the rows (with header) that are currently displayed
+  var rowCount = tableInfo.rows.length;
+  
+  // iterate through the rows, backwards from end to delete tr entries, but not the header (rowcount-1)
+  for (var x=rowCount-1; x>0; x--) {
+    tableInfo.deleteRow(x);
+  }
 
-// Print a copy of the filtered data to the console to verify it is correct
-console.log(filteredUFO);
+  // Put the filtered data on the page
+  // Get a reference to the table body
+  var tbody = d3.select("tbody");
 
-// Clear out any existing rows in the table before adding new ones
-var tableInfo = document.getElementById('ufo-table');
-console.log(tableInfo)
-
-var rowCount = tableInfo.rows.length;
-console.log(rowCount)
-
-
-for (var x=rowCount-1; x>0; x--) {
-   tableInfo.deleteRow(x);
-}
-
-// Put the filtered data on the page
-// Get a reference to the table body
-var tbody = d3.select("tbody");
-
-// Build the table using Arrow Functions...
-filteredUFO.forEach((UFOReport) => {
-  var row = tbody.append("tr");
-  Object.entries(UFOReport).forEach(([key, value]) => {
-    var cell = row.append("td");
-    cell.text(value);
+  // Build the table using Arrow Functions...
+  filteredUFO.forEach((UFOReport) => {
+    var row = tbody.append("tr");
+    Object.entries(UFOReport).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
   });
-});
-
 
 }
-// Done
+  
