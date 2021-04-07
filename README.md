@@ -26,4 +26,4 @@ JavaScript Challenge Assignment - Displays HTML page with input form, and handle
 
   * [CSS Styles:](UFO-level-1/static/css/style.css) Style sheet for the site. 
 
-  * [Images for the site:](UFO-level-1/static/images/style.css) Background for the landing page. 
+  * [Images for the site:](UFO-level-1/static/images) Background for the landing page. 
