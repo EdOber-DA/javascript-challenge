@@ -7,6 +7,8 @@ Challenge is to build a web page that will displplay a table of data based on da
 
 JavaScript Challenge Assignment - Displays HTML page with input form, and handlers to execute reading value entered upon clicking button, or hitting enter. Filters data based on the entered data, clears any pre-exiting data in the table and presents the filtered data in the table.   
 
+Landing page for the assignment: https://edober-da.github.io/javascript-challenge/UFO-level-1/
+
 * Included in this repository are 2 Folders: UFO-level-1 has the required assignment, and UFO-level-2 has the bonus work, but was not completed due to time constraints. 
    
   * [UFO-level-1:](UFO-level-1) Contains the index.html landing page, and the subfolders for the displaying the page which are listed below.  
