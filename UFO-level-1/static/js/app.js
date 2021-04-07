@@ -37,6 +37,18 @@ var filteredUFO = UFOData.filter(sighting => sighting.datetime === inputValue);
 // Print a copy of the filtered data to the console to verify it is correct
 console.log(filteredUFO);
 
+// Clear out any existing rows in the table before adding new ones
+var tableInfo = document.getElementById('ufo-table');
+console.log(tableInfo)
+
+var rowCount = tableInfo.rows.length;
+console.log(rowCount)
+
+
+for (var x=rowCount-1; x>0; x--) {
+   tableInfo.deleteRow(x);
+}
+
 // Put the filtered data on the page
 // Get a reference to the table body
 var tbody = d3.select("tbody");
@@ -49,5 +61,7 @@ filteredUFO.forEach((UFOReport) => {
     cell.text(value);
   });
 });
+
+
 }
 // Done
