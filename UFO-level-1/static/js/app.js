@@ -12,7 +12,12 @@ var form = d3.select("#UFOform");
 button.on("click",runEnter);
 form.on("submit",runEnter);
 
-// Complete the event handler function for the form
+// seed the screen initialization so the table has data
+ display_table("1/11/2010");
+
+// Done...
+
+// Function for the event handler for the form  -triggered if data is enteres and button clicked or enter done
 function runEnter() {
 
   // Prevent the page from refreshing
@@ -24,15 +29,20 @@ function runEnter() {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
+  // Call the display table function with the input value and...  
+  display_table(inputValue);
+  // we are done!
+  };
+
+
+  // Function to take input value (whether a seed for the first time, or input from the screen)
+  function display_table(UFODate) {
   
   // Filter the data based on date that was inputed (can also be null if nothing entered and submitted)
-  var filteredUFO = UFOData.filter(sighting => sighting.datetime === inputValue);
+  var filteredUFO = UFOData.filter(sighting => sighting.datetime === UFODate);
 
-  // Print a copy of the filtered data to the console to verify it is correct
-  // console.log(filteredUFO);
-
-  // Housekeeping: Clear out any existing rows in the table before adding new ones 
-  // Get the table object
+ // Housekeeping: Clear out any existing rows in the table before adding new ones 
+ // Get the table object
   var tableInfo = document.getElementById('ufo-table');
   
   // count the rows (with header) that are currently displayed
@@ -55,6 +65,5 @@ function runEnter() {
       cell.text(value);
     });
   });
-
 }
   
