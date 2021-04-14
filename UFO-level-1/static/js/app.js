@@ -12,8 +12,8 @@ var form = d3.select("#UFOform");
 button.on("click",runEnter);
 form.on("submit",runEnter);
 
-// seed the screen initialization so the table has data
- display_table("1/11/2010");
+// seed the screen initialization so the table includes all the data
+ display_table("99/99/9999");
 
 // Done...
 
@@ -37,9 +37,11 @@ function runEnter() {
 
   // Function to take input value (whether a seed for the first time, or input from the screen)
   function display_table(UFODate) {
-  
+   
   // Filter the data based on date that was inputed (can also be null if nothing entered and submitted)
-  var filteredUFO = UFOData.filter(sighting => sighting.datetime === UFODate);
+  // if this is the first time, load ALL the data
+  if (UFODate==="99/99/9999") {var filteredUFO = UFOData;}
+   else {var filteredUFO = UFOData.filter(sighting => sighting.datetime === UFODate);}
 
  // Housekeeping: Clear out any existing rows in the table before adding new ones 
  // Get the table object
@@ -56,7 +58,8 @@ function runEnter() {
   // Put the filtered data on the page
   // Get a reference to the table body
   var tbody = d3.select("tbody");
-
+  // tbody.html(""); alternate way to clear
+   
   // Build the table using Arrow Functions...
   filteredUFO.forEach((UFOReport) => {
     var row = tbody.append("tr");

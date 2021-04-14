@@ -5,7 +5,7 @@ Challenge is to build a web page that will display a table of data based on date
 
 ## Overview
 
-JavaScript Challenge Assignment - Displays HTML page with input form, and handlers to execute reading value entered upon clicking button, or hitting enter. Filters data based on the entered data, clears any pre-exiting data in the table and presents the filtered data in the table.   Additional feature added to pre-load the table with data on initial entry so it displays data that matches the placeholder of “1/11/2010”.
+JavaScript Challenge Assignment - Displays HTML page with input form, and handlers to execute reading value entered upon clicking button, or hitting enter. Filters data based on the entered data, clears any pre-exiting data in the table and presents the filtered data in the table.   Additional feature added to pre-load the table with "ALL" the data on initial entry so it displays the full table. 
 
 Landing page for the assignment: https://edober-da.github.io/javascript-challenge/UFO-level-1/
 
